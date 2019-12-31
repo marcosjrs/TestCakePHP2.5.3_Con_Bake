@@ -38,16 +38,11 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	?>
 </head>
 <body>
-	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
-		</div>
-		<div id="content">
+	<?php echo $this->element('menu'); ?>
+	<div class="container theme-showcase">
+		<?php echo $this->Session->flash(); ?>
+		<?php echo $this->fetch('content'); ?>
 
-			<?php echo $this->Session->flash(); ?>
-
-			<?php echo $this->fetch('content'); ?>
-		</div>
 		<div id="footer">
 			<?php echo $this->Html->link(
 					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
@@ -58,8 +53,9 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 			<p>
 				<?php echo $cakeVersion; ?>
 			</p>
+			<?php //echo $this->element('sql_dump'); ?>
 		</div>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
+	
 </body>
 </html>

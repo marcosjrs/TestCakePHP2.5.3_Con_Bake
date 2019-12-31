@@ -12,13 +12,3 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Mesa.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('Mesa.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Mesas'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Meseros'), array('controller' => 'meseros', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Mesero'), array('controller' => 'meseros', 'action' => 'add')); ?> </li>
-	</ul>
-</div>

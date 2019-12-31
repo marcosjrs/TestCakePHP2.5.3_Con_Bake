@@ -73,3 +73,128 @@ CREATE TABLE `restaurante2`.`mesas` (
   PRIMARY KEY (`id`)); 
 
 ```
+
+Instrucciones con cake bake
+---------------------------
+
+Tras la descarga de la version correspondiente de cakephp.
+
+Entramos en la carpeta app y ejecutamos cake bake
+
+```
+cd app
+cake bake
+```
+
+Con lo cual nos muestra un menu interactivo, con el que ir creando, por ej., primero los modelos, luego controllers y luego las vistas.
+
+
+Definimos los MODELOS
+
+```
+>M
+>default  Pulsando enter
+>1        Seleccionando Mesero
+>y        Establecer un displayField
+>3        Seleccionamos serie como displayField
+>y        Seleccioamos que queremos establecer los criterios de los campos del modelo
+
+
+Para id, pulsamos enter para no asignar ningún criterio (que es 35 por defecto)
+Para mesero_id, pulsamos enter para no asignar ningún criterio (que es 35 por defecto)
+Para serie, pulsamos: 24 (que es notEmpty), luego: y (para continuar), luego: 25 (que es numeric), luego: n para pasar al siguiente
+Para puestos, pulsamos: 24, luego: y (para continuar), luego: 25, luego: n para pasar al siguiente
+Para posicion, pulsamos: 24, luego: n para pasar al siguiente
+Para modified, pulsamos enter para no asignar ningún criterio (que es 35 por defecto)
+Para created, pulsamos enter para no asignar ningún criterio (que es 35 por defecto)
+```
+
+Al terminar, pregunta si queremos definir alguna asociacion para el modelo, teclamos: 
+
+```
+>y
+Detecta que contien un mesero_id, por tanto entiende que se debe añadir un belongsTo, tecleamos:
+>y
+Luego pregunta si queremos más relaciones, tecleamos:
+>n
+Nos muestra el resumen y pregunta si está todo ok, tecleamos:
+>y
+```
+
+Luego hacemos lo propio pero para mesa
+
+```
+>M
+>default  Pulsando enter
+>1        Seleccionando Mesa
+>y        Establecer un displayField
+>3        Seleccionamos nombre como displayField
+>y        Seleccioamos que queremos establecer los criterios de los campos del modelo
+
+
+Para id, pulsamos enter para no asignar ningún criterio (que es 35 por defecto)
+Para mesero_id, pulsamos enter para no asignar ningún criterio (que es 35 por defecto)
+Para dni, pulsamos: 24 (que es notEmpty), luego: y (para continuar), luego: 1 (que es alfanumerico), luego: n para pasar al siguiente
+Para nombre, pulsamos: 24, luego: y (para continuar), luego: 25, luego: n para pasar al siguiente
+Para apellido, pulsamos: 24, luego: n para pasar al siguiente
+Para telefono, pulsamos: 24, luego: y (para continuar), luego: 25 (que es numeric), luego: n para pasar al siguiente
+Para modified, pulsamos enter para no asignar ningún criterio (que es 35 por defecto)
+Para created, pulsamos enter para no asignar ningún criterio (que es 35 por defecto)
+```
+
+Al terminar, pregunta si queremos definir alguna asociacion para el modelo, teclamos: 
+
+```
+>y
+Basandose en lo anterior (que en mesas hay campo mesero_id), que mesero es un hasMany mesas, tecleamos:
+>y
+Luego pregunta si queremos más relaciones, tecleamos:
+>n
+Nos muestra el resumen y pregunta si está todo ok, tecleamos:
+>y
+```
+
+
+Ahora empezamos con los CONTROLLERS
+
+```
+>C
+>default  (Pulsando enter, ya que es por defecto)
+>1        (Seleccionando Mesas)
+>n        (Indicando que no queremos definir los controllers interactivamente de forma automatica)
+>y        (Indicando que quemos index(), add(), view() y edit() )
+>n        (Indicando que no queremos una clase para la administración)
+```
+
+Lo mismo pero para los Meseros
+
+```
+>C
+>default  (Pulsando enter, ya que es por defecto)
+>2        (Seleccionando Meseros)
+>n        (Indicando que no queremos definir los controllers interactivamente de forma automatica)
+>y        (Indicando que quemos index(), add(), view() y edit() )
+>n        (Indicando que no queremos una clase para la administración)
+```
+
+
+Ahora empezamos con las VISTAS
+
+```
+>V
+>default  (Pulsando enter, ya que es por defecto)
+>2        (Seleccionando Meseros)
+>n        (Indicando que no queremos definir las vistas interactivamente de forma automatica)
+```
+
+Lo mismo para Mesas
+
+```
+>V
+>default  (Pulsando enter, ya que es por defecto)
+>2        (Seleccionando Meseros)
+>n        (Indicando que no queremos definir las vistas interactivamente de forma automatica)
+
+
+>q        (Para salir)
+```

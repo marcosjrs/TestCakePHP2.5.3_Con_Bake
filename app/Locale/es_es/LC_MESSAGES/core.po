@@ -1,0 +1,26 @@
+msgid "Submit"
+msgstr "Guardar"
+
+msgid "Actions"
+msgstr "Acciones"
+
+msgid "previous"
+msgstr "anterior"
+
+msgid "next"
+msgstr "siguiente"
+
+msgid "View"
+msgstr "Ver"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Delete"
+msgstr "Borrar"
+
+msgid "Edit Mesa"
+msgstr "Editar Mesa"
+
+msgid "Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}"
+msgstr "Página {:page} / {:pages}.<br>Mostrando de la fila {:start} a la {:end}.<br>{:current} filas mostradas de un total de {:count}. "

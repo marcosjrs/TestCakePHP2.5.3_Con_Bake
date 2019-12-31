@@ -89,7 +89,7 @@ cake bake
 Con lo cual nos muestra un menu interactivo, con el que ir creando, por ej., primero los modelos, luego controllers y luego las vistas.
 
 
-Definimos los MODELOS
+**Definimos los MODELOS**
 
 ```
 >M
@@ -109,16 +109,12 @@ Para modified, pulsamos enter para no asignar ningún criterio (que es 35 por de
 Para created, pulsamos enter para no asignar ningún criterio (que es 35 por defecto)
 ```
 
-Al terminar, pregunta si queremos definir alguna asociacion para el modelo, teclamos: 
 
 ```
->y
-Detecta que contien un mesero_id, por tanto entiende que se debe añadir un belongsTo, tecleamos:
->y
-Luego pregunta si queremos más relaciones, tecleamos:
->n
-Nos muestra el resumen y pregunta si está todo ok, tecleamos:
->y
+>y    (respondiendo que queremos definir alguna asociacion para el modelo)
+>y    (indicando que tiene razón  al detectar que como contiene un mesero_id, se debe añadir un belongsTo )
+>n    (respondiendo que no queremos más relaciones para este)
+>y    (respondiendo que todo está ok)
 ```
 
 Luego hacemos lo propio pero para mesa
@@ -145,17 +141,14 @@ Para created, pulsamos enter para no asignar ningún criterio (que es 35 por def
 Al terminar, pregunta si queremos definir alguna asociacion para el modelo, teclamos: 
 
 ```
->y
-Basandose en lo anterior (que en mesas hay campo mesero_id), que mesero es un hasMany mesas, tecleamos:
->y
-Luego pregunta si queremos más relaciones, tecleamos:
->n
-Nos muestra el resumen y pregunta si está todo ok, tecleamos:
->y
+>y    (respondiendo que queremos definir alguna asociacion para el modelo)
+>y    (indicando que tiene razón, al detectar se trata de hasMany con mesas )
+>n    (respondiendo que no queremos más relaciones para este)
+>y    (respondiendo que todo está ok)
 ```
 
 
-Ahora empezamos con los CONTROLLERS
+**Ahora empezamos con los CONTROLLERS**
 
 ```
 >C
@@ -178,7 +171,7 @@ Lo mismo pero para los Meseros
 ```
 
 
-Ahora empezamos con las VISTAS
+**Ahora las VISTAS**
 
 ```
 >V

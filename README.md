@@ -77,7 +77,7 @@ CREATE TABLE `restaurante2`.`mesas` (
 Instrucciones con cake bake
 ---------------------------
 
-Tras la descarga de la version correspondiente de cakephp.
+Tras la descarga de la version correspondiente de cakephp y los cambios correspondientes en la configuración inicial en database.php (usuario, contraseña y BBDD).
 
 Entramos en la carpeta app y ejecutamos cake bake
 

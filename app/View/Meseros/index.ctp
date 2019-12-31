@@ -40,9 +40,9 @@
 	?>	</p>
 	<div class="paging">
 	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled btn btn-sm btn-info'));
+		echo $this->Paginator->prev('< ' . __('previous'), array('class'=>'btn btn-sm btn-info'), null, array('class' => 'prev disabled btn btn-sm btn-info'));
 		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled btn btn-sm btn-info'));
+		echo $this->Paginator->next(__('next') . ' >', array('class'=>'btn btn-sm btn-info'), null, array('class' => 'next disabled btn btn-sm btn-info'));
 	?>
 	</div>
 </div>

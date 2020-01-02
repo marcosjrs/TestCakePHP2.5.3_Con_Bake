@@ -36,11 +36,3 @@
 	?>
 	</div>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Categoria Plato'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Platos'), array('controller' => 'platos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Plato'), array('controller' => 'platos', 'action' => 'add')); ?> </li>
-	</ul>
-</div>

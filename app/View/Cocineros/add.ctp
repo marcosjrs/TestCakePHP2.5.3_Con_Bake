@@ -1,12 +1,12 @@
 <div class="cocineros form">
 <?php echo $this->Form->create('Cocinero'); ?>
-	<fieldset>
+	<fieldset class="form-group">
 		<legend><?php echo __('Add Cocinero'); ?></legend>
 	<?php
-		echo $this->Form->input('nombre');
-		echo $this->Form->input('apellido');
-		echo $this->Form->input('Plato');
+		echo $this->Form->input('nombre', array("class"=>"form-control"));
+		echo $this->Form->input('apellido', array("class"=>"form-control"));
+		echo $this->Form->input('Plato', array("class"=>"form-control"));
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+	<?php echo $this->Form->end(array('label' => __('Submit'), 'class' => 'btn btn-primary', 'div' => false)); ?>
 </div>

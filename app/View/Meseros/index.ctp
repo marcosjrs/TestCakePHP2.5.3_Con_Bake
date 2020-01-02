@@ -1,3 +1,22 @@
+<?php
+/**
+ * Configuración del helper Paginator según la pasada desde MeserosController
+ * - Que actualice en el div con id contenedor-meseros
+ * - Que muestre un preloader en  un div con id procesando, cada vez que paginemos...
+ * - Que al terminar de hacer la carga de paginación se oculte el preloader de carga, con una animación de fadeout 
+ */
+$this->Paginator->options(
+	array(
+		'update' => '#contenedor-meseros',
+		'before' => $this->Js->get('#procesando')->effect('fadeIn', array('buffer' => false)),
+		'complete'=> $this->Js->get('#preloader')->effect('fadeOut', array('buffer' => false))
+	)
+)
+
+?>
+
+<div id="contenedor-meseros">
+
 <div class="meseros index">
 	<div class="page-header"><h2><?php echo __('Meseros'); ?></h2></div>	
 	<table class="table table-striped">
@@ -45,4 +64,15 @@
 		echo $this->Paginator->next(__('next') . ' >', array('class'=>'btn btn-sm btn-info'), null, array('class' => 'next disabled btn btn-sm btn-info'));
 	?>
 	</div>
+	<div id="procesando" style="display:none">
+		<div class="loader-procesando">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div> 
 </div>
+
+<?php echo $this->Js->writeBuffer(); //para poder ejecutar los fadeIn y fadeOut de la barra de progreso... ?>
+
+</div> <!-- end contenedor-meseros -->

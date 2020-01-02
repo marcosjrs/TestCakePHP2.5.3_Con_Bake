@@ -13,17 +13,18 @@ class MeserosController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
-	
+	public $components = array('Paginator','RequestHandler','Session');
+
+	public $helpers =array('Html','Form','Js','Time');
 /**
  * Paginamos de 5 en 5 registro, y ordenamos por id de forma asc, de 1 a ....
  */
-	public $paginate = array(
-		'limit' => 5,
-		'order' => array(
-			'Mesero.id'=>'asc'
-		)
-	);
+public $paginate = array(
+	'limit' => 5,
+	'order' => array(
+		'Mesero.id'=>'asc'
+	)
+);
 
 /**
  * index method

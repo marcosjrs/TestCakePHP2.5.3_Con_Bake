@@ -71,3 +71,21 @@ preloader
       transform: translateY(-10px);
     }
   }
+
+.view{
+  background-color: #fff;
+  border-width: 1px;
+  border-radius: 4px 4px 0 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  position: relative;
+  padding: 0px 15px 15px;
+  margin: 0 -15px 15px;
+  border-color: #e5e5e5 #eee #eee;
+  border-style: solid;
+}
+
+.view h2{
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}

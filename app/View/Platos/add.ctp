@@ -7,6 +7,7 @@
 		echo $this->Form->input('nombre');
 		echo $this->Form->input('descripcion');
 		echo $this->Form->input('precio');
+		echo $this->Form->input('Cocinero');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

@@ -4,7 +4,7 @@ App::uses('AppModel', 'Model');
  * Plato Model
  *
  * @property CategoriaPlato $CategoriaPlato
- * @property CocinerosPlato $CocinerosPlato
+ * @property Cocinero $Cocinero
  */
 class Plato extends AppModel {
 
@@ -31,6 +31,16 @@ class Plato extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'categoria_plato_id' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 		'descripcion' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -42,6 +52,14 @@ class Plato extends AppModel {
 			),
 		),
 		'precio' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -71,23 +89,23 @@ class Plato extends AppModel {
 	);
 
 /**
- * hasMany associations
+ * hasAndBelongsToMany associations
  *
  * @var array
  */
-	public $hasMany = array(
-		'CocinerosPlato' => array(
-			'className' => 'CocinerosPlato',
+	public $hasAndBelongsToMany = array(
+		'Cocinero' => array(
+			'className' => 'Cocinero',
+			'joinTable' => 'cocineros_platos',
 			'foreignKey' => 'plato_id',
-			'dependent' => false,
+			'associationForeignKey' => 'cocinero_id',
+			'unique' => 'keepExisting',
 			'conditions' => '',
 			'fields' => '',
 			'order' => '',
 			'limit' => '',
 			'offset' => '',
-			'exclusive' => '',
 			'finderQuery' => '',
-			'counterQuery' => ''
 		)
 	);
 

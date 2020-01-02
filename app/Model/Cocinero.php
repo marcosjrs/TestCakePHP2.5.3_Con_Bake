@@ -3,7 +3,7 @@ App::uses('AppModel', 'Model');
 /**
  * Cocinero Model
  *
- * @property CocinerosPlato $CocinerosPlato
+ * @property Plato $Plato
  */
 class Cocinero extends AppModel {
 
@@ -52,23 +52,23 @@ class Cocinero extends AppModel {
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
- * hasMany associations
+ * hasAndBelongsToMany associations
  *
  * @var array
  */
-	public $hasMany = array(
-		'CocinerosPlato' => array(
-			'className' => 'CocinerosPlato',
+	public $hasAndBelongsToMany = array(
+		'Plato' => array(
+			'className' => 'Plato',
+			'joinTable' => 'cocineros_platos',
 			'foreignKey' => 'cocinero_id',
-			'dependent' => false,
+			'associationForeignKey' => 'plato_id',
+			'unique' => 'keepExisting',
 			'conditions' => '',
 			'fields' => '',
 			'order' => '',
 			'limit' => '',
 			'offset' => '',
-			'exclusive' => '',
 			'finderQuery' => '',
-			'counterQuery' => ''
 		)
 	);
 

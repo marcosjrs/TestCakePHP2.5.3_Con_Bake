@@ -207,13 +207,20 @@ Para modified, pulsamos enter para no asignar ningún criterio (que es 35 por de
 Para created, pulsamos enter para no asignar ningún criterio (que es 35 por defecto)
 ```
 
-Al terminar, pregunta si queremos definir alguna asociacion para el modelo, teclamos: 
+Al terminar: 
 
 ```
->y    (respondiendo que queremos definir alguna asociacion para el modelo)
->y    (indicando que tiene razón, al detectar se trata de hasMany con CocinerosPlato )
->n    (respondiendo que no queremos más relaciones para este)
->y    (respondiendo que todo está ok)
+> y   ...model associations (hasMany, hasOne, belongsTo, etc.)? (y/n)
+> n   Cocinero hasMany CocinerosPlato? (y/n)
+> n   Cocinero hasOne CocinerosPlato? (y/n) 
+> y   ...some additional model associations? (y/n) 
+> 4   hasAndBelongsToMany  
+> Plato       ...alias for this association? 
+> Plato       ...className will Plato use?   
+> cocinero_id ...What is the foreignKey?
+>plato_id     What is the associationForeignKey?  
+> cocineros_platos  What is the joinTable? 
+> n   Define another association? (y/n) 
 ```
 
 ---
@@ -227,11 +234,11 @@ Y ahora con Platos
 >        Seleccionando Mesa
 >y        Establecer un displayField
 >3        Seleccionamos nombre como displayField
->y        Seleccioamos que queremos establecer los criterios de los campos del modelo
+>y        Seleccionamos que queremos establecer los criterios de los campos del modelo
 
 
 Para id, pulsamos enter para no asignar ningún criterio (que es 35 por defecto)
-Para categoria_plato_id, pulsamos enter para no asignar ningún criterio (que es 35 por defecto)
+Para categoria_plato_id, pulsamos: 24, luego: n para pasar al siguiente
 Para nombre, pulsamos: 24, luego: n para pasar al siguiente
 Para descripcion, pulsamos: 24, luego: n para pasar al siguiente
 Para precio, pulsamos: 24, luego: y (para continuar), luego: 25 (que es numeric), luego: n para pasar al siguiente
@@ -242,15 +249,17 @@ Para created, pulsamos enter para no asignar ningún criterio (que es 35 por def
 Al terminar, pregunta si queremos definir alguna asociacion para el modelo, teclamos: 
 
 ```
->y    (respondiendo que queremos definir alguna asociacion para el modelo)
->y    (indicando que tiene razón, al detectar se trata de belongsTo CategoriaPlato )
->y    (respondiendo que queremos más relaciones para este)
->3    (hasMany)
->CocinerosPlato   (Será el alias dado a la relacion que haremos de hasMany)
->CocinerosPlato    (NOmbre del ClassName)
->3    (seleccionan plato_id, que será con el que se relacionará)
->n    (respondiendo que no necesita más relaciones)
->y    (respondiendo que todo está ok)
+> y   ...model associations (hasMany, hasOne, belongsTo, etc.)? (y/n)
+> n   Cocinero hasMany CategoriaPlato?? (y/n)
+> y   ...some additional model associations? (y/n) 
+> 4   hasAndBelongsToMany  
+> Cocinero       ...alias for this association? 
+> Cocinero       ...className will Plato use?   
+> Cocinero       ...What is the table for this model?  Puede ser que dea un error.. da igual  
+> plato_id ...What is the foreignKey?
+> cocinero_id     What is the associationForeignKey?  
+> cocineros_platos  What is the joinTable? 
+> n   Define another association? (y/n) 
 ```
 
 Y ahora con CategoriaPlato

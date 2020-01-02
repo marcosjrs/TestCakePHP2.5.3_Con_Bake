@@ -56,7 +56,8 @@ class PlatosController extends AppController {
 			}
 		}
 		$categoriaPlatos = $this->Plato->CategoriaPlato->find('list');
-		$this->set(compact('categoriaPlatos'));
+		$cocineros = $this->Plato->Cocinero->find('list');
+		$this->set(compact('categoriaPlatos', 'cocineros'));
 	}
 
 /**
@@ -82,7 +83,8 @@ class PlatosController extends AppController {
 			$this->request->data = $this->Plato->find('first', $options);
 		}
 		$categoriaPlatos = $this->Plato->CategoriaPlato->find('list');
-		$this->set(compact('categoriaPlatos'));
+		$cocineros = $this->Plato->Cocinero->find('list');
+		$this->set(compact('categoriaPlatos', 'cocineros'));
 	}
 
 /**

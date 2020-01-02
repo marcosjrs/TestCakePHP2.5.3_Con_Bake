@@ -55,6 +55,8 @@ class CocinerosController extends AppController {
 				$this->Session->setFlash(__('The cocinero could not be saved. Please, try again.'));
 			}
 		}
+		$platos = $this->Cocinero->Plato->find('list');
+		$this->set(compact('platos'));
 	}
 
 /**
@@ -79,6 +81,8 @@ class CocinerosController extends AppController {
 			$options = array('conditions' => array('Cocinero.' . $this->Cocinero->primaryKey => $id));
 			$this->request->data = $this->Cocinero->find('first', $options);
 		}
+		$platos = $this->Cocinero->Plato->find('list');
+		$this->set(compact('platos'));
 	}
 
 /**

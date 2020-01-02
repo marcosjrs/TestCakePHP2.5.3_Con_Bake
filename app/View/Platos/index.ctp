@@ -1,6 +1,6 @@
 <div class="platos index">
-	<h2><?php echo __('Platos'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<div class="page-header"><h2><?php echo __('Platos'); ?></h2></div>
+	<table class="table table-striped">
 	<thead>
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
@@ -26,9 +26,9 @@
 		<td><?php echo h($plato['Plato']['created']); ?>&nbsp;</td>
 		<td><?php echo h($plato['Plato']['modified']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $plato['Plato']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $plato['Plato']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $plato['Plato']['id']), array(), __('Are you sure you want to delete # %s?', $plato['Plato']['id'])); ?>
+			<?php echo $this->Html->link(__('View'), array('action' => 'view', $plato['Plato']['id']), array( "class"=>"btn btn-xs btn-primary")); ?>
+			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $plato['Plato']['id']), array( "class"=>"btn btn-xs btn-primary")); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $plato['Plato']['id']), array("class"=>"btn btn-xs btn-danger"), __('Are you sure you want to delete # %s?', $plato['Plato']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -42,9 +42,9 @@
 	?>	</p>
 	<div class="paging">
 	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+		echo $this->Paginator->prev('< ' . __('previous'), array('btn btn-sm btn-info'), null, array('class' => 'prev btn btn-sm btn-info disabled'));
 		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+		echo $this->Paginator->next(__('next') . ' >', array('btn btn-sm btn-info'), null, array('class' => 'next btn btn-sm btn-info disabled'));
 	?>
 	</div>
 </div>

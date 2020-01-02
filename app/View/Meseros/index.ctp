@@ -43,8 +43,8 @@ $this->Paginator->options(
 		<td><?php echo h($mesero['Mesero']['created']); ?>&nbsp;</td>
 		<td><?php echo h($mesero['Mesero']['modified']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $mesero['Mesero']['id']), array( "class"=>"btn btn-xs btn-primary")); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $mesero['Mesero']['id']), array( "class"=>"btn btn-xs btn-primary")); ?>
+			<?php echo $this->Html->link(__('View'), array('action' => 'view', $mesero['Mesero']['id']), array( "class"=>"btn btn-xs btn-primary"), array( "class"=>"btn btn-xs btn-primary")); ?>
+			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $mesero['Mesero']['id']), array( "class"=>"btn btn-xs btn-primary"), array( "class"=>"btn btn-xs btn-primary")); ?>
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $mesero['Mesero']['id']), array( "class"=>"btn btn-xs btn-danger"), __('Are you sure you want to delete # %s?', $mesero['Mesero']['id'])); ?>
 		</td>
 	</tr>

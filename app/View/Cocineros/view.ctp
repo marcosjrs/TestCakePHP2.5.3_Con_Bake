@@ -28,21 +28,10 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Cocinero'), array('action' => 'edit', $cocinero['Cocinero']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Cocinero'), array('action' => 'delete', $cocinero['Cocinero']['id']), array(), __('Are you sure you want to delete # %s?', $cocinero['Cocinero']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Cocineros'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Cocinero'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Platos'), array('controller' => 'platos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Plato'), array('controller' => 'platos', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
 <div class="related">
 	<h3><?php echo __('Related Platos'); ?></h3>
 	<?php if (!empty($cocinero['Plato'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
+	<table class="table table-striped">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Categoria Plato Id'); ?></th>
@@ -63,18 +52,12 @@
 			<td><?php echo $plato['created']; ?></td>
 			<td><?php echo $plato['modified']; ?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'platos', 'action' => 'view', $plato['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'platos', 'action' => 'edit', $plato['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'platos', 'action' => 'delete', $plato['id']), array(), __('Are you sure you want to delete # %s?', $plato['id'])); ?>
+				<?php echo $this->Html->link(__('View'), array('controller' => 'platos', 'action' => 'view', $plato['id']), array( "class"=>"btn btn-xs btn-primary")); ?>
+				<?php echo $this->Html->link(__('Edit'), array('controller' => 'platos', 'action' => 'edit', $plato['id']), array( "class"=>"btn btn-xs btn-primary")); ?>
+				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'platos', 'action' => 'delete', $plato['id']), array("class"=>"btn btn-xs btn-danger"), __('Are you sure you want to delete # %s?', $plato['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Plato'), array('controller' => 'platos', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
 </div>

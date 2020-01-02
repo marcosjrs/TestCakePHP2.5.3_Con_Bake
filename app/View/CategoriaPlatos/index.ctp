@@ -1,6 +1,6 @@
 <div class="categoriaPlatos index">
-	<h2><?php echo __('Categoria Platos'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<div class="page-header"><h2><?php echo __('Categoria Platos'); ?></h2></div>
+	<table class="table table-striped">
 	<thead>
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
@@ -14,9 +14,9 @@
 		<td><?php echo h($categoriaPlato['CategoriaPlato']['id']); ?>&nbsp;</td>
 		<td><?php echo h($categoriaPlato['CategoriaPlato']['categoria']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $categoriaPlato['CategoriaPlato']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $categoriaPlato['CategoriaPlato']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $categoriaPlato['CategoriaPlato']['id']), array(), __('Are you sure you want to delete # %s?', $categoriaPlato['CategoriaPlato']['id'])); ?>
+			<?php echo $this->Html->link(__('View'), array('action' => 'view', $categoriaPlato['CategoriaPlato']['id']), array( "class"=>"btn btn-xs btn-primary")); ?>
+			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $categoriaPlato['CategoriaPlato']['id']), array( "class"=>"btn btn-xs btn-primary")); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $categoriaPlato['CategoriaPlato']['id']), array("class"=>"btn btn-xs btn-danger"), __('Are you sure you want to delete # %s?', $categoriaPlato['CategoriaPlato']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -30,9 +30,9 @@
 	?>	</p>
 	<div class="paging">
 	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+		echo $this->Paginator->prev('< ' . __('previous'), array('class'=>'btn btn-sm btn-info'), null, array('class' => 'prev btn btn-sm btn-info disabled'));
 		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+		echo $this->Paginator->next(__('next') . ' >', array('class'=>'btn btn-sm btn-info'), null, array('class' => 'next btn btn-sm btn-info disabled'));
 	?>
 	</div>
 </div>

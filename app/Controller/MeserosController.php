@@ -14,6 +14,16 @@ class MeserosController extends AppController {
  * @var array
  */
 	public $components = array('Paginator');
+	
+/**
+ * Paginamos de 5 en 5 registro, y ordenamos por id de forma asc, de 1 a ....
+ */
+	public $paginate = array(
+		'limit' => 5,
+		'order' => array(
+			'Mesero.id'=>'asc'
+		)
+	);
 
 /**
  * index method
@@ -22,6 +32,7 @@ class MeserosController extends AppController {
  */
 	public function index() {
 		$this->Mesero->recursive = 0;
+		$this->Paginator->settings = $this->paginate;
 		$this->set('meseros', $this->Paginator->paginate());
 	}
 

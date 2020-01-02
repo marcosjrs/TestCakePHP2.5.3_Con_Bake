@@ -72,6 +72,45 @@ CREATE TABLE `restaurante2`.`mesas` (
   `modified` DATETIME NULL DEFAULT NULL,
   PRIMARY KEY (`id`)); 
 
+CREATE TABLE `restaurante2`.`cocineros` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(50) NULL,
+  `apellido` VARCHAR(100) NULL,
+  `created` DATETIME NULL DEFAULT NULL,
+  `modified` DATETIME NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_spanish2_ci;
+
+CREATE TABLE `restaurante2`.`platos` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `categoria_plato_id` INT(11) NULL COMMENT 'Clave foranea al tipo de plato',
+  `nombre` VARCHAR(50) NULL,
+  `descripcion` VARCHAR(200) NULL,
+  `precio` float(6,2) NULL,
+  `created` DATETIME NULL DEFAULT NULL,
+  `modified` DATETIME NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_spanish2_ci;
+
+CREATE TABLE `restaurante2`.`categoria_platos` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `categoria` VARCHAR(200) NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- Tabla de relacion muchos a muchos de cocinero con platos
+CREATE TABLE `restaurante2`.`cocineros_platos` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `cocinero_id` INT(11) NOT NULL COMMENT 'Clave foranea al cocinero',
+  `plato_id` INT(11) NOT NULL COMMENT 'Clave foranea al plato',
+  PRIMARY KEY (`id`)
+);
+
+
 ```
 
 Instrucciones con cake bake
@@ -94,7 +133,7 @@ Con lo cual nos muestra un menu interactivo, con el que ir creando, por ej., pri
 ```
 >M
 >default  Pulsando enter
->1        Seleccionando Mesero
+>        Seleccionando Mesero
 >y        Establecer un displayField
 >3        Seleccionamos serie como displayField
 >y        Seleccioamos que queremos establecer los criterios de los campos del modelo
@@ -122,7 +161,7 @@ Luego hacemos lo propio pero para mesa
 ```
 >M
 >default  Pulsando enter
->1        Seleccionando Mesa
+>        Seleccionando Mesa
 >y        Establecer un displayField
 >3        Seleccionamos nombre como displayField
 >y        Seleccioamos que queremos establecer los criterios de los campos del modelo
@@ -147,16 +186,108 @@ Al terminar, pregunta si queremos definir alguna asociacion para el modelo, tecl
 >y    (respondiendo que todo está ok)
 ```
 
+---
+
+
+Ahora para Cocineros
+
+```
+>M
+>default  Pulsando enter
+>        Seleccionando Cocinero
+>y        Establecer un displayField
+>3        Seleccionamos nombre como displayField
+>y        Seleccionamos que queremos establecer los criterios de los campos del modelo
+
+
+Para id, pulsamos enter para no asignar ningún criterio (que es 35 por defecto)
+Para nombre, pulsamos: 24, luego: n para pasar al siguiente
+Para apellido, pulsamos: 24, luego: n para pasar al siguiente
+Para modified, pulsamos enter para no asignar ningún criterio (que es 35 por defecto)
+Para created, pulsamos enter para no asignar ningún criterio (que es 35 por defecto)
+```
+
+Al terminar, pregunta si queremos definir alguna asociacion para el modelo, teclamos: 
+
+```
+>y    (respondiendo que queremos definir alguna asociacion para el modelo)
+>y    (indicando que tiene razón, al detectar se trata de hasMany con CocinerosPlato )
+>n    (respondiendo que no queremos más relaciones para este)
+>y    (respondiendo que todo está ok)
+```
+
+---
+
+
+Y ahora con Platos
+
+```
+>M
+>default  Pulsando enter
+>        Seleccionando Mesa
+>y        Establecer un displayField
+>3        Seleccionamos nombre como displayField
+>y        Seleccioamos que queremos establecer los criterios de los campos del modelo
+
+
+Para id, pulsamos enter para no asignar ningún criterio (que es 35 por defecto)
+Para categoria_plato_id, pulsamos enter para no asignar ningún criterio (que es 35 por defecto)
+Para nombre, pulsamos: 24, luego: n para pasar al siguiente
+Para descripcion, pulsamos: 24, luego: n para pasar al siguiente
+Para precio, pulsamos: 24, luego: y (para continuar), luego: 25 (que es numeric), luego: n para pasar al siguiente
+Para modified, pulsamos enter para no asignar ningún criterio (que es 35 por defecto)
+Para created, pulsamos enter para no asignar ningún criterio (que es 35 por defecto)
+```
+
+Al terminar, pregunta si queremos definir alguna asociacion para el modelo, teclamos: 
+
+```
+>y    (respondiendo que queremos definir alguna asociacion para el modelo)
+>y    (indicando que tiene razón, al detectar se trata de belongsTo CategoriaPlato )
+>y    (respondiendo que queremos más relaciones para este)
+>3    (hasMany)
+>CocinerosPlato   (Será el alias dado a la relacion que haremos de hasMany)
+>CocinerosPlato    (NOmbre del ClassName)
+>3    (seleccionan plato_id, que será con el que se relacionará)
+>n    (respondiendo que no necesita más relaciones)
+>y    (respondiendo que todo está ok)
+```
+
+Y ahora con CategoriaPlato
+
+```
+>M
+>default  Pulsando enter
+>        Seleccionando CategoriaPlato
+>y        Establecer un displayField
+>2        Seleccionamos categoria como displayField
+>y        Seleccionamos que queremos establecer los criterios de los campos del modelo
+
+
+Para id, pulsamos enter para no asignar ningún criterio (que es 35 por defecto)
+Para categoria, pulsamos: 24, luego: n para pasar al siguiente
+```
+
+Al terminar, pregunta si queremos definir alguna asociacion para el modelo, teclamos: 
+
+```
+>y    (respondiendo que queremos definir alguna asociacion para el modelo)
+>y    (indicando que tiene razón, al detectar se trata de hasMany Plato )
+>n    (respondiendo que no queremos más relaciones para este)
+>y    (respondiendo que todo está ok)
+```
+
 
 **Ahora empezamos con los CONTROLLERS**
 
 ```
 >C
 >default  (Pulsando enter, ya que es por defecto)
->1        (Seleccionando Mesas)
+>        (Seleccionando Mesas)
 >n        (Indicando que no queremos definir los controllers interactivamente de forma automatica)
 >y        (Indicando que quemos index(), add(), view() y edit() )
 >n        (Indicando que no queremos una clase para la administración)
+>y        (Indicando que ok)
 ```
 
 Lo mismo pero para los Meseros
@@ -164,19 +295,54 @@ Lo mismo pero para los Meseros
 ```
 >C
 >default  (Pulsando enter, ya que es por defecto)
->2        (Seleccionando Meseros)
+>        (Seleccionando Meseros)
 >n        (Indicando que no queremos definir los controllers interactivamente de forma automatica)
 >y        (Indicando que quemos index(), add(), view() y edit() )
 >n        (Indicando que no queremos una clase para la administración)
+>y        (Indicando que ok)
 ```
 
+Lo mismo pero para los Cocineros
 
+```
+>C
+>default  (Pulsando enter, ya que es por defecto)
+>        (Seleccionando Meseros)
+>n        (Indicando que no queremos definir los controllers interactivamente de forma automatica)
+>y        (Indicando que quemos index(), add(), view() y edit() )
+>n        (Indicando que no queremos una clase para la administración)
+>y        (Indicando que ok)
+```
+
+Lo mismo pero para los Cocineros
+
+```
+>C
+>default  (Pulsando enter, ya que es por defecto)
+>        (Seleccionando Meseros)
+>n        (Indicando que no queremos definir los controllers interactivamente de forma automatica)
+>y        (Indicando que quemos index(), add(), view() y edit() )
+>n        (Indicando que no queremos una clase para la administración)
+>y        (Indicando que ok)
+```
+
+Lo mismo pero para los CateriaPlatos
+
+```
+>C
+>default  (Pulsando enter, ya que es por defecto)
+>        (Seleccionando Meseros)
+>n        (Indicando que no queremos definir los controllers interactivamente de forma automatica)
+>y        (Indicando que quemos index(), add(), view() y edit() )
+>n        (Indicando que no queremos una clase para la administración)
+>y        (Indicando que ok)
+```
 **Ahora las VISTAS**
 
 ```
 >V
 >default  (Pulsando enter, ya que es por defecto)
->2        (Seleccionando Meseros)
+>        (Seleccionando Meseros)
 >n        (Indicando que no queremos definir las vistas interactivamente de forma automatica)
 ```
 
@@ -185,8 +351,39 @@ Lo mismo para Mesas
 ```
 >V
 >default  (Pulsando enter, ya que es por defecto)
->2        (Seleccionando Meseros)
+>        (Seleccionando Mesas)
 >n        (Indicando que no queremos definir las vistas interactivamente de forma automatica)
+```
+
+Lo mismo para Cocineros
+
+```
+>V
+>default  (Pulsando enter, ya que es por defecto)
+>        (Seleccionando Cocineros)
+>n        (Indicando que no queremos definir las vistas interactivamente de forma automatica)
+```
+
+Lo mismo para Platos
+
+```
+>V
+>default  (Pulsando enter, ya que es por defecto)
+>        (Seleccionando Platos)
+>n        (Indicando que no queremos definir las vistas interactivamente de forma automatica)
+```
+
+
+Lo mismo para CategoriaPlatos
+
+```
+>V
+>default  (Pulsando enter, ya que es por defecto)
+>        (Seleccionando Platos)
+>n        (Indicando que no queremos definir las vistas interactivamente de forma automatica)
+```
+
+
 
 
 >q        (Para salir)

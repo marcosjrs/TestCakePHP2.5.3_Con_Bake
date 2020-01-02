@@ -26,6 +26,27 @@
                 <li><?php echo $this->Html->link('Crear nueva mesa', array('controller' => 'mesas', 'action' => 'add')); ?></li>
               </ul>
             </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cocineros <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><?php echo $this->Html->link('Listar Cocineros', array('controller' => 'cocineros', 'action' => 'index')); ?></li>
+                <li><?php echo $this->Html->link('Crear nuevo Cocinero', array('controller' => 'cocineros', 'action' => 'add')); ?></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Platos <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><?php echo $this->Html->link('Listar platos', array('controller' => 'platos', 'action' => 'index')); ?></li>
+                <li><?php echo $this->Html->link('Crear nuevo plato', array('controller' => 'platos', 'action' => 'add')); ?></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categorias de Plato <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><?php echo $this->Html->link('Listar categorias', array('controller' => 'categoriaplatos', 'action' => 'index')); ?></li>
+                <li><?php echo $this->Html->link('Crear nueva categoria', array('controller' => 'categoriaplatos', 'action' => 'add')); ?></li>
+              </ul>
+            </li>
            <!-- <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
             <li class="dropdown">

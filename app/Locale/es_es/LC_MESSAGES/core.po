@@ -22,5 +22,11 @@ msgstr "Borrar"
 msgid "Edit Mesa"
 msgstr "Editar Mesa"
 
+msgid "Add Mesa"
+msgstr "Crear  Mesa"
+
+msgid "Add Mesero"
+msgstr "Crear  Mesero"
+
 msgid "Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}"
 msgstr "Página {:page} / {:pages}.<br>Mostrando de la fila {:start} a la {:end}.<br>{:current} filas mostradas de un total de {:count}. "

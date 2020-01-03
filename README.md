@@ -397,3 +397,27 @@ Lo mismo para CategoriaPlatos
 
 >q        (Para salir)
 ```
+
+Instalacion cakephp-upload
+--------------------------
+
+```
+cd app\Plugin 
+git clone -b 2.x https://github.com/FriendsOfCake/cakephp-upload.git Upload
+```
+
+Y en bootstrap.php añadimos:
+```
+CakePlugin::load('Upload');
+```
+
+
+
+Añadidos a BBDD a posterior
+---------------------------
+
+```
+ALTER TABLE `restaurante2`.`platos` 
+ADD COLUMN `foto` VARCHAR(255) NULL DEFAULT NULL AFTER `precio`,
+ADD COLUMN `foto_dir` VARCHAR(255) NULL DEFAULT NULL AFTER `foto`;
+```

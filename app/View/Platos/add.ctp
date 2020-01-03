@@ -7,7 +7,8 @@
 		echo $this->Form->input('nombre', array("class"=>"form-control"));
 		echo $this->Form->input('descripcion', array("class"=>"form-control"));
 		echo $this->Form->input('precio', array("class"=>"form-control"));
-		echo $this->Form->input('foto', array("type"=>"file","class"=>"form-control"));
+		echo $this->Form->input('foto', array('type'=>'file', 'class'=>'file',
+					'id'=>'foto', 'data-show-upload'=>'false', 'data-show-caption'=>'true'));
 		echo $this->Form->input('foto_dir', array("type"=>"hidden"));
 		echo $this->Form->input('Cocinero', array("class"=>"form-control"));
 	?>

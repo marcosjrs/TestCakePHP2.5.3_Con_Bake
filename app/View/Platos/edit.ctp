@@ -7,7 +7,9 @@
 		echo $this->Form->input('categoria_plato_id', array("class"=>"form-control"));
 		echo $this->Form->input('nombre', array("class"=>"form-control"));
 		echo $this->Form->input('descripcion', array("class"=>"form-control"));
-		echo $this->Form->input('precio', array("class"=>"form-control"));
+		echo $this->Form->input('precio', array("class"=>"form-control"));		
+		echo $this->Form->input('foto', array("type"=>"file","class"=>"form-control"));
+		echo $this->Form->input('foto_dir', array("type"=>"hidden"));
 		echo $this->Form->input('Cocinero', array("class"=>"form-control"));
 	?>
 	</fieldset>

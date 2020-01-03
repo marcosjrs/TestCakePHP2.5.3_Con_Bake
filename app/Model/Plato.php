@@ -89,7 +89,27 @@ class Plato extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-	);
+		'foto' => array(
+			'uploadError' => array(
+				'rule' => 'uploadError',
+				'message' => 'No se ha podido subir el archivo'
+			),
+			'isUnderPhpSizeLimit' => array(
+				'rule' => 'isUnderPhpSizeLimit',
+				'message' => 'El tamaño del archivo es demasiado grande'
+			),
+			/*'isValidMimeType' => array(
+				'rule' => array('isValidMimeType', array('application/jpeg','jpeg','application/jpg','jpg','png', 'application/png')),
+				'message' => 'El tipo de archivo debe ser un jpg o png'
+			),*/
+			'isBelowMaxSize' => array(
+				'rule' => array('isBelowMaxSize', 512000),
+				'message' => 'El archivo supera los 512000 bytes (500k) y no puede superarlos'
+				//https://cakephp-upload.readthedocs.io/en/2.x/validation.html
+			)	
+		),
+
+	); 
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

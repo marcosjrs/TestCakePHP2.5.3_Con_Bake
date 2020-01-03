@@ -8,6 +8,7 @@
 			<th><?php echo $this->Paginator->sort('nombre'); ?></th>
 			<th><?php echo $this->Paginator->sort('descripcion'); ?></th>
 			<th><?php echo $this->Paginator->sort('precio'); ?></th>
+			<th><?php echo $this->Paginator->sort('foto'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
@@ -23,6 +24,7 @@
 		<td><?php echo h($plato['Plato']['nombre']); ?>&nbsp;</td>
 		<td><?php echo h($plato['Plato']['descripcion']); ?>&nbsp;</td>
 		<td><?php echo h($plato['Plato']['precio']); ?>&nbsp;</td>
+		<td><?php echo $this->Html->image('../files/plato/foto/'.$plato['Plato']['foto_dir'].'/thumb_'.$plato['Plato']['foto']) ?>&nbsp;</td>
 		<td><?php echo h($plato['Plato']['created']); ?>&nbsp;</td>
 		<td><?php echo h($plato['Plato']['modified']); ?>&nbsp;</td>
 		<td class="actions">

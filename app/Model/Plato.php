@@ -24,7 +24,7 @@ class Plato extends AppModel {
 				'thumbnailMethod'=>'php',
 				'thumbnailSizes' => array(
 					'vga' =>'640x480',
-					'thumb' => '150x150'
+					'thumb' => '50x50'
 				),
 				'deleteOnUpdate' => true,
 				'deleteFolderOnDelete' => true

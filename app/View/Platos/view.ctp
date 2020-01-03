@@ -8,7 +8,7 @@
 		</dd>
 		<dt><?php echo __('Categoria Plato'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($plato['CategoriaPlato']['id'], array('controller' => 'categoria_platos', 'action' => 'view', $plato['CategoriaPlato']['id'])); ?>
+			<?php echo $this->Html->link($plato['CategoriaPlato']['categoria'], array('controller' => 'categoria_platos', 'action' => 'view', $plato['CategoriaPlato']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Nombre'); ?></dt>

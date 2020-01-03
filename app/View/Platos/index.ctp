@@ -18,7 +18,7 @@
 	<tr>
 		<td><?php echo h($plato['Plato']['id']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($plato['CategoriaPlato']['id'], array('controller' => 'categoria_platos', 'action' => 'view', $plato['CategoriaPlato']['id'])); ?>
+			<?php echo $this->Html->link($plato['CategoriaPlato']['categoria'], array('controller' => 'categoria_platos', 'action' => 'view', $plato['CategoriaPlato']['id'])); ?>
 		</td>
 		<td><?php echo h($plato['Plato']['nombre']); ?>&nbsp;</td>
 		<td><?php echo h($plato['Plato']['descripcion']); ?>&nbsp;</td>

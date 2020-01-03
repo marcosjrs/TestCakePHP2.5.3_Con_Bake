@@ -97,10 +97,10 @@ class Plato extends AppModel {
 				'rule' => 'isUnderPhpSizeLimit',
 				'message' => 'El tamaño del archivo es demasiado grande'
 			),
-			/*'isValidMimeType' => array(
-				'rule' => array('isValidMimeType', array('application/jpeg','jpeg','application/jpg','jpg','png', 'application/png')),
+			'isValidMimeType' => array(
+				'rule' => array('isValidMimeType', array('application/jpeg','image/jpeg','jpeg','application/jpg','image/jpg','jpg','application/png','image/png','png')),
 				'message' => 'El tipo de archivo debe ser un jpg o png'
-			),*/
+			),
 			'isBelowMaxSize' => array(
 				'rule' => array('isBelowMaxSize', 512000),
 				'message' => 'El archivo supera los 512000 bytes (500k) y no puede superarlos'

@@ -15,6 +15,26 @@ class Plato extends AppModel {
  */
 	public $displayField = 'nombre';
 
+	public $actsAs = array(
+		'Upload.Upload' => array(
+			'foto'=>array(
+				'fields'=> array(
+					'dir'=>'foto_dir'
+				),
+				'thumbnailMethod'=>'php',
+				'thumbnailSizes' => array(
+					'vga' =>'640x480',
+					'thumb' => '150x150'
+				),
+				'deleteOnUpdate' => true,
+				'deleteFolderOnDelete' => true
+			)
+		)
+	); 
+	// 'thumbnailMethod'=>'php' para que use la librería GD y no la de Magik
+	// 'deleteOnUpdate' => true que borre la imagen anterior cada vez que se actualice
+	//'deleteFolderOnDelete' => true  que se borre la carpeta asignada a esa imagen
+
 /**
  * Validation rules
  *

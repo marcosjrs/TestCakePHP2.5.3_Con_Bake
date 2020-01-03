@@ -26,7 +26,6 @@ class Plato extends AppModel {
 					'vga' =>'640x480',
 					'thumb' => '50x50'
 				),
-				'deleteOnUpdate' => true,
 				'deleteFolderOnDelete' => true
 			)
 		)

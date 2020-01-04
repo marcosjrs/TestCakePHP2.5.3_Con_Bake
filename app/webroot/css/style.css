@@ -31,8 +31,15 @@ preloader
 }
 
 .loader-procesando {
-    position: absolute;
-    top:-10px;
+  position: absolute;
+  top: 37px;
+  left: 5px;
+}
+.float-left{
+  float: left;
+}
+.clear-left{
+  clear: left;
 }
 
 .loader-procesando span{

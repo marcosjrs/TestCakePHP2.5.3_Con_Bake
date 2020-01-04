@@ -30,3 +30,46 @@ msgstr "Crear  Mesero"
 
 msgid "Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}"
 msgstr "Página {:page} / {:pages}.<br>Mostrando de la fila {:start} a la {:end}.<br>{:current} filas mostradas de un total de {:count}. "
+
+
+msgid "View Plato"
+msgstr "Ver Plato"
+
+msgid "Edit Plato"
+msgstr "Editar Plato"
+
+msgid "List Platos"
+msgstr "Listar los Platos"
+
+msgid "New Plato"
+msgstr "Crear Plato"
+
+
+msgid "List Categoria Platos"
+msgstr "Listar Categorias de platos"
+
+msgid "New Categoria Plato"
+msgstr "Crear Categoria"
+
+msgid "List Cocineros"
+msgstr "Listar Cocineros"
+
+
+msgid "Related Cocineros"
+msgstr "Cocineros"
+
+
+msgid "Delete Plato"
+msgstr "Borrar Plato"
+
+msgid "New Cocinero"
+msgstr "Crear Cocinero"
+
+msgid "View Cocinero"
+msgstr "Ver Cocinero"
+
+msgid "Edit Cocinero"
+msgstr "Editar Cocinero"
+
+msgid "Delete Cocinero"
+msgstr "Borrar Cocinero"

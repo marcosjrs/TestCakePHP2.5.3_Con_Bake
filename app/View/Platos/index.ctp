@@ -1,41 +1,27 @@
 <div class="platos index">
-	<div class="page-header"><h2><?php echo __('Platos'); ?></h2></div>
-	<table class="table table-striped">
-	<thead>
-	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('categoria_plato_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('nombre'); ?></th>
-			<th><?php echo $this->Paginator->sort('descripcion'); ?></th>
-			<th><?php echo $this->Paginator->sort('precio'); ?></th>
-			<th><?php echo $this->Paginator->sort('foto'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
-			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	</thead>
-	<tbody>
-	<?php foreach ($platos as $plato): ?>
-	<tr>
-		<td><?php echo h($plato['Plato']['id']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($plato['CategoriaPlato']['categoria'], array('controller' => 'categoria_platos', 'action' => 'view', $plato['CategoriaPlato']['id'])); ?>
-		</td>
-		<td><?php echo h($plato['Plato']['nombre']); ?>&nbsp;</td>
-		<td><?php echo h($plato['Plato']['descripcion']); ?>&nbsp;</td>
-		<td><?php echo h($plato['Plato']['precio']); ?>&nbsp;</td>
-		<td><?php echo $this->Html->image('../files/plato/foto/'.$plato['Plato']['foto_dir'].'/thumb_'.$plato['Plato']['foto']) ?>&nbsp;</td>
-		<td><?php echo h($plato['Plato']['created']); ?>&nbsp;</td>
-		<td><?php echo h($plato['Plato']['modified']); ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $plato['Plato']['id']), array( "class"=>"btn btn-xs btn-primary")); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $plato['Plato']['id']), array( "class"=>"btn btn-xs btn-primary")); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $plato['Plato']['id']), array("class"=>"btn btn-xs btn-danger"), __('Are you sure you want to delete # %s?', $plato['Plato']['id'])); ?>
-		</td>
-	</tr>
-<?php endforeach; ?>
-	</tbody>
-	</table>
+	<div class="page-header">
+		<h2><?php echo __('Platos'); ?></h2>
+	</div>
+
+	<div class="row">
+		<?php foreach ($platos as $plato): ?>
+		<div class="col col-sm-3">
+			<figure class="plato">
+				<?php echo $this->Html->image('../files/plato/foto/' . $plato['Plato']['foto_dir'] . '/' . 'thumb_' .$plato['Plato']['foto'], array('url' => array('controller' => 'platos', 'action' => 'view', $plato['Plato']['id']))); ?>
+			</figure>
+			<br />
+			<?php echo $this->Html->link($plato['Plato']['nombre'], array('action' => 'view', $plato['Plato']['id'])); ?>
+			<br />
+			<span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+			<?php echo $this->Html->link($plato['CategoriaPlato']['categoria'], array('controller' => 'categoria_platos', 'action' => 'view', $plato['CategoriaPlato']['id']), array('class' => 'food-category')); ?>
+			<br />
+			<?php echo h($plato['Plato']['precio']); ?>€ &nbsp;
+			<br />
+			<br />
+		</div>
+		<?php endforeach; ?>
+	</div>
+
 	<p class="float-left">
 		<?php
 		echo $this->Paginator->counter(array(

@@ -1,3 +1,22 @@
+<?php
+/**
+ * Configuración del helper Paginator según la pasada desde MeserosController
+ * - Que actualice en el div con id contenedor
+ * - Que muestre un preloader en  un div con id procesando, cada vez que paginemos...
+ * - Que al terminar de hacer la carga de paginación se oculte el preloader de carga, con una animación de fadeout 
+ */
+$this->Paginator->options(
+	array(
+		'update' => '#contenedor',
+		'before' => $this->Js->get('#procesando')->effect('fadeIn', array('buffer' => false)),
+		'complete'=> $this->Js->get('#procesando')->effect('fadeOut', array('buffer' => false))
+	)
+)
+
+?>
+
+<div id="contenedor">
+
 <div class="platos index">
 	<div class="page-header">
 		<h2><?php echo __('Platos'); ?></h2>
@@ -43,4 +62,6 @@
 			<li><?php echo $this->Paginator->next(__('next') . ' >', array('tag'=>false), null, array('class' => 'next disabled')); ?></li>
 		</ul>
 	</nav>
+</div>
+
 </div>

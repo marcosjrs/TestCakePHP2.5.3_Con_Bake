@@ -9,7 +9,7 @@ $this->Paginator->options(
 	array(
 		'update' => '#contenedor-meseros',
 		'before' => $this->Js->get('#procesando')->effect('fadeIn', array('buffer' => false)),
-		'complete'=> $this->Js->get('#preloader')->effect('fadeOut', array('buffer' => false))
+		'complete'=> $this->Js->get('#procesando')->effect('fadeOut', array('buffer' => false))
 	)
 )
 

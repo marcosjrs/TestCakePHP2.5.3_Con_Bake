@@ -13,7 +13,8 @@ class PlatosController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');	
+	public $components = array('RequestHandler','Session');
+	public $helper = array('Html','Form','Js','Time');
 
 /**
  * limitar a 12 el numero de platos a mostrar por cada página
@@ -21,7 +22,7 @@ class PlatosController extends AppController {
     public $paginate = array(
         'limit' => 12,
         'order' => array(
-            'Platillo.id' => 'asc'
+            'Plato.id' => 'asc'
         )
     );
 
@@ -31,8 +32,11 @@ class PlatosController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->Plato->recursive = 0;
-		$this->set('platos', $this->Paginator->paginate());
+		$this->Plato->recursive = 0;		
+		$this->paginate['Plato']['limit'] = 12;
+		$this->paginate['Plato']['order'] = array('Plato.id' => 'asc');
+		$this->set('platos', $this->paginate());
+
 	}
 
 /**

@@ -13,7 +13,17 @@ class PlatosController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Paginator');	
+
+/**
+ * limitar a 12 el numero de platos a mostrar por cada página
+ */
+    public $paginate = array(
+        'limit' => 12,
+        'order' => array(
+            'Platillo.id' => 'asc'
+        )
+    );
 
 /**
  * index method
